@@ -1,3 +1,8 @@
 spring:
   application:
     name: predictive-risk-service
+  neo4j:
+    uri: "bolt://my-server:7687"
+    authentication:
+      username: "neo4j"
+      password: "secret"
