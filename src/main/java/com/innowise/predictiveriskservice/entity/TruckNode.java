@@ -7,13 +7,13 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 
 import java.util.UUID;
 
-@Node("Vessel")
-public class VesselNode {
+@Node("Truck")
+public class TruckNode {
 
     @Id
     @GeneratedValue
     private UUID id;
 
-    @Relationship(type = "BOUND_TO", direction = Relationship.Direction.OUTGOING)
-    private PortNode port;
+    @Relationship(type = "DESTINED_FOR", direction = Relationship.Direction.OUTGOING)
+    private DestinationNode destination;
 }
