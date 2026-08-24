@@ -5,16 +5,15 @@ import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Relationship;
 
-import java.util.List;
 import java.util.UUID;
 
-@Node({"Shipment", "Order"})
-public class ShipmentNode {
+@Node("Container")
+public class ContainerNode {
 
     @Id
     @GeneratedValue
     private UUID id;
 
-    @Relationship(type = "ASSIGNED_TO", direction = Relationship.Direction.OUTGOING)
-    private List<ContainerNode> containers;
+    @Relationship(type = "LOADED_ON", direction = Relationship.Direction.OUTGOING)
+    private VesselNode vessel;
 }

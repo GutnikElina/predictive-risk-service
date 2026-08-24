@@ -1,3 +1,6 @@
+CREATE CONSTRAINT constraint_container_id_unique IF NOT EXISTS
+FOR (c:Container) REQUIRE c.id IS UNIQUE;
+
 CREATE CONSTRAINT constraint_port_id_unique IF NOT EXISTS
 FOR (p:Port) REQUIRE p.id IS UNIQUE;
 
