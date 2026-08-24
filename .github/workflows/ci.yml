@@ -28,12 +28,17 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Build, Test, and Sonar Analyze
+      - name: Build and Test
+        run: |
+          ./mvnw clean verify
+
+      - name: SonarQube Analysis
+        if: ${{ secrets.SONAR_TOKEN != '' }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: |
-          ./mvnw clean verify sonar:sonar \
-            -Dsonar.projectKey=predictive-risk-service \
-            -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.token=$SONAR_TOKEN
+        run:
+          ./mvnw sonar:sonar \
+          -Dsonar.projectKey=predictive-risk-service \
+          -Dsonar.host.url=$SONAR_HOST_URL \
+          -Dsonar.token=$SONAR_TOKEN
