@@ -12,5 +12,5 @@ public interface ContainerRepository extends ReactiveNeo4jRepository<ContainerNo
     @Query("MATCH (c:Container {id: $containerId}), (v:Vessel {id: $vesselId}) " +
             "MERGE (c)-[r:LOADED_ON]->(v) " +
             "RETURN c")
-    Mono<ContainerNode> linkVesselToContainer(UUID vesselId, UUID containerId);
+    Mono<ContainerNode> loadContainerOnVessel(UUID containerId, UUID vesselId);
 }
