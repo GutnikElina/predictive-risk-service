@@ -1,0 +1,8 @@
+CREATE CONSTRAINT constraint_port_id_unique IF NOT EXISTS
+FOR (p:Port) REQUIRE p.id IS UNIQUE;
+
+CREATE CONSTRAINT constraint_shipment_id_unique IF NOT EXISTS
+FOR (s:Shipment) REQUIRE s.id IS UNIQUE;
+
+CREATE CONSTRAINT constraint_vessel_id_unique IF NOT EXISTS
+FOR (v:Vessel) REQUIRE v.id IS UNIQUE;
