@@ -12,5 +12,5 @@ public interface ShipmentOrderRepository extends ReactiveNeo4jRepository<Shipmen
     @Query("MATCH (s:Shipment {id: $shipmentId}), (c:Container {id: $containerId}) " +
             "MERGE (s)-[r:ASSIGNED_TO]->(c) " +
             "RETURN s")
-    Mono<ShipmentNode> linkContainerToShipment(UUID shipmentId, UUID containerId);
+    Mono<ShipmentNode> linkContainerToShipment(UUID containerId, UUID shipmentId);
 }
