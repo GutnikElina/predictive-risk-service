@@ -19,17 +19,11 @@ public class LogisticsGraphService {
     private final ContainerRepository containerRepository;
     private final ShipmentOrderRepository shipmentOrderRepository;
 
-    public Mono<ShipmentNode> linkContainerToShipment(String containerId, String shipmentId) {
-        return shipmentOrderRepository.linkContainerToShipment(
-                UUID.fromString(containerId),
-                UUID.fromString(shipmentId)
-        );
+    public Mono<ShipmentNode> linkContainerToShipment(UUID containerId, UUID shipmentId) {
+        return shipmentOrderRepository.linkContainerToShipment(containerId, shipmentId);
     }
 
-    public Mono<ContainerNode> linkVesselToContainer(String vesselId, String containerId) {
-        return containerRepository.linkVesselToContainer(
-                UUID.fromString(vesselId),
-                UUID.fromString(containerId)
-        );
+    public Mono<ContainerNode> linkContainerToVessel(UUID vesselId, UUID containerId) {
+        return containerRepository.linkVesselToContainer(vesselId, containerId);
     }
 }
