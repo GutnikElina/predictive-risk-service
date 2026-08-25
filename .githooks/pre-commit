@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+echo "Running pre-commit checks..."
+
+./mvnw test-compile -q
+if [ $? -ne 0 ]; then
+    echo "Pre-commit check failed: Code fails to compile!"
+    exit 1
+fi
+
+echo "Pre-commit checks passed!"
+exit 0
