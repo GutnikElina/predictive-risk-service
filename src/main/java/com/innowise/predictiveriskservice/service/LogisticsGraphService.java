@@ -4,8 +4,7 @@ import com.innowise.predictiveriskservice.entity.ContainerNode;
 import com.innowise.predictiveriskservice.entity.ShipmentNode;
 import com.innowise.predictiveriskservice.exception.EntityNotFoundException;
 import com.innowise.predictiveriskservice.exception.RelationshipCreationException;
-import com.innowise.predictiveriskservice.repository.ContainerRepository;
-import com.innowise.predictiveriskservice.repository.ShipmentOrderRepository;
+import com.innowise.predictiveriskservice.repository.SupplyChainRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -19,11 +18,10 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class LogisticsGraphService {
 
-    private final ContainerRepository containerRepository;
-    private final ShipmentOrderRepository shipmentOrderRepository;
+    private final SupplyChainRepository supplyChainRepository;
 
     public Mono<ShipmentNode> assignShipmentToContainer(UUID shipmentId, UUID containerId) {
-        return shipmentOrderRepository.assignShipmentToContainer(containerId, shipmentId)
+        return supplyChainRepository.assignShipmentToContainer(containerId, shipmentId)
                 .switchIfEmpty(Mono.error(
                         new EntityNotFoundException("Shipment or Container", shipmentId)
                 ))
@@ -38,7 +36,7 @@ public class LogisticsGraphService {
     }
 
     public Mono<ContainerNode> loadContainerOnVessel(UUID containerId, UUID vesselId) {
-        return containerRepository.loadContainerOnVessel(containerId, vesselId)
+        return supplyChainRepository.loadContainerOnVessel(containerId, vesselId)
                 .switchIfEmpty(Mono.error(
                         new EntityNotFoundException("Vessel or Container", vesselId)
                 ))
