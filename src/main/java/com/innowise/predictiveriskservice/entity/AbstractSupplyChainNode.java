@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Node("SupplyChainNode")
-public abstract class SupplyChainNode {
+public abstract class AbstractSupplyChainNode {
 
     @Id
     @GeneratedValue
