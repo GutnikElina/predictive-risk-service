@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "GeofencingEventAvro",
+  "namespace": "com.innowise.predictiveriskservice.kafka.avro",
+  "fields": [
+    {"name": "event_id", "type": {
+      "type": "string",
+      "logicalType": "uuid"
+    }},
+    {"name": "device_id", "type": {
+      "type": "string",
+      "logicalType": "uuid"
+    }},
+    {"name": "zone_id", "type": {
+      "type": "string",
+      "logicalType": "uuid"
+    }},
+    {"name": "event_type", "type": {
+      "type": "enum",
+      "name": "GeofencingEventType",
+      "symbols": ["ENTERED", "EXITED", "CORRIDOR_DEVIATED"]
+    }},
+    {"name": "timestamp", "type": "long"},
+    {"name": "location", "type": "string"}
+  ]
+}
