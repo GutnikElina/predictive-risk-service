@@ -24,11 +24,11 @@ public class GeofenceEventConsumer {
             UUID vesselId = event.getZoneId();
 
             logisticsGraphService.loadContainerOnVessel(containerId, vesselId)
-                    .subscribe(
-                            updated -> log.info("Linked Container {} to Vessel {}", containerId, vesselId),
-                            error -> log.error("Failed to link Container {} to Vessel {}: {}",
-                                    containerId, vesselId, error.getMessage())
-                    );
+                    .doOnSuccess(updated -> log.info("Linked Container {} to Vessel {}",
+                                    containerId, vesselId))
+                    .doOnError(error -> log.error("Failed to link Container {} to Vessel {}: {}",
+                            containerId, vesselId, error.getMessage()))
+                    .block();
         }
     }
 }
