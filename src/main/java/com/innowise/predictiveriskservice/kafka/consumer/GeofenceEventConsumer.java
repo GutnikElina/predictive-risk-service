@@ -17,7 +17,7 @@ public class GeofenceEventConsumer {
 
     private final LogisticsGraphService logisticsGraphService;
 
-    @KafkaListener(topics = "logistics.events.geofencing.v1")
+    @KafkaListener(topics = "logistics.events.geofencing.v1", groupId = "predictive_risk_service")
     public void consumeGeofencing(GeofencingEventAvro event) {
         if (event.getEventType() == GeofencingEventType.ENTERED) {
             UUID containerId = event.getDeviceId();
