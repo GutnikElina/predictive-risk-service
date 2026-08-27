@@ -1,3 +1,6 @@
+server:
+  port: ${SERVER_PORT}
+
 spring:
   application:
     name: predictive-risk-service
