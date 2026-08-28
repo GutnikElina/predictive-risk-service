@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
 import java.util.UUID;
 
 @Slf4j
@@ -16,6 +17,8 @@ import java.util.UUID;
 public class GeofenceEventConsumer {
 
     private final LogisticsGraphService logisticsGraphService;
+
+    private static final Duration PROCESSING_TIMEOUT = Duration.ofSeconds(3);
 
     @KafkaListener(topics = "logistics.events.geofencing.v1", groupId = "predictive_risk_service")
     public void consumeGeofencing(GeofencingEventAvro event) {
@@ -28,7 +31,7 @@ public class GeofenceEventConsumer {
                                     containerId, vesselId))
                     .doOnError(error -> log.error("Failed to link Container {} to Vessel {}: {}",
                             containerId, vesselId, error.getMessage()))
-                    .block();
+                    .block(PROCESSING_TIMEOUT);
         }
     }
 }
