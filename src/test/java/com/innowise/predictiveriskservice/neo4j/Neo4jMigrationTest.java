@@ -1,4 +1,4 @@
-package com.innowise.predictiveriskservice;
+package com.innowise.predictiveriskservice.neo4j;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
