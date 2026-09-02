@@ -1,15 +1,13 @@
 package com.innowise.predictiveriskservice.entity;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
 
-import java.util.UUID;
+import java.util.List;
 
-@Node("Shipment")
-public class ShipmentNode {
+@Node({"Shipment", "Order"})
+public class ShipmentNode extends AbstractSupplyChainNode {
 
-    @Id
-    @GeneratedValue
-    private UUID id;
+    @Relationship(type = "ASSIGNED_TO", direction = Relationship.Direction.OUTGOING)
+    private List<ContainerNode> containers;
 }

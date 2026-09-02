@@ -29,16 +29,21 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
 
       - name: Build and Test
+        env:
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          NEO4J_URI: ${{ secrets.NEO4J_URI }}
+          NEO4J_USERNAME: ${{ secrets.NEO4J_USERNAME }}
+          NEO4J_PASSWORD: ${{ secrets.NEO4J_PASSWORD }}
         run: |
           ./mvnw clean verify
 
       - name: SonarQube Analysis
-        if: ${{ secrets.SONAR_TOKEN != '' }}
+        if: ${{ env.SONAR_TOKEN != '' }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run:
           ./mvnw sonar:sonar \
-          -Dsonar.projectKey=predictive-risk-service \
-          -Dsonar.host.url=$SONAR_HOST_URL \
-          -Dsonar.token=$SONAR_TOKEN
+          -Dsonar.projectKey=GutnikElina_predictive-risk-service
+          -Dsonar.organization=gutnikelina
+          -Dsonar.host.url=https://sonarcloud.io

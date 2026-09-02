@@ -1,6 +1,10 @@
+server:
+  port: ${SERVER_PORT}
+
 spring:
   application:
     name: predictive-risk-service
+
   neo4j:
     uri: ${NEO4J_URI}
     authentication:
