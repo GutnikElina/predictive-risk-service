@@ -10,3 +10,10 @@ spring:
     authentication:
       username: ${NEO4J_USERNAME}
       password: ${NEO4J_PASSWORD}
+
+  risk:
+    weight:
+      delay: 0.1
+      weather: 0.2
+      vendor-history: 0.3
+      document-errors: 0.4
