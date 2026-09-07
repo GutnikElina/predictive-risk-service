@@ -1,6 +1,8 @@
 package com.innowise.predictiveriskservice.repository;
 
-import com.innowise.predictiveriskservice.entity.*;
+import com.innowise.predictiveriskservice.entity.AbstractSupplyChainNode;
+import com.innowise.predictiveriskservice.entity.ShipmentNode;
+import com.innowise.predictiveriskservice.entity.ContainerNode;
 import org.springframework.data.neo4j.repository.ReactiveNeo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 import reactor.core.publisher.Flux;
