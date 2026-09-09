@@ -1,7 +1,7 @@
 package com.innowise.predictiveriskservice.exception;
 
-public class IllegalRiskScore extends RuntimeException {
-    public IllegalRiskScore(String message) {
+public class IllegalRiskScoreException extends RuntimeException {
+    public IllegalRiskScoreException(String message) {
         super(message);
     }
 }
