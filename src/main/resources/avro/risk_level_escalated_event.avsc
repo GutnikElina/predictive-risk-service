@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "RiskLevelEscalatedEvent",
+  "namespace": "com.innowise.predictiveriskservice.kafka.avro",
+  "fields": [
+    {"name": "shipment_id", "type": {
+      "type": "string",
+      "logicalType": "uuid"
+    }},
+    {"name": "risk_score", "type": "double"},
+    {"name": "reason", "type": "string"},
+    {"name": "solving_methods", "type": "string"}
+  ]
+}
