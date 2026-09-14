@@ -19,8 +19,8 @@ spring:
 
   datasource:
     url: ${SPRING_DATASOURCE_URL}
-    username: postgres
-    password: postgres
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
 
   jpa:
     hibernate:
