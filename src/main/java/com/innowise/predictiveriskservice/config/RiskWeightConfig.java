@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter @Setter
-@ConfigurationProperties(prefix = "risk.weight")
+@ConfigurationProperties(prefix = "spring.risk.weight")
 public class RiskWeightConfig {
     private double delay;
     private double weather;
