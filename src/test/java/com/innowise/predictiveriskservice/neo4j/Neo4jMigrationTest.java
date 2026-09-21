@@ -15,7 +15,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
+@SpringBootTest(properties = "org.neo4j.migrations.enabled=true")
 @ActiveProfiles("test")
 class Neo4jMigrationTest {
 

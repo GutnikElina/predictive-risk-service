@@ -1,6 +1,6 @@
 package com.innowise.predictiveriskservice.integration;
 
-import com.innowise.predictiveriskservice.entity.VesselNode;
+import com.innowise.predictiveriskservice.model.VesselNode;
 import com.innowise.predictiveriskservice.repository.SupplyChainRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

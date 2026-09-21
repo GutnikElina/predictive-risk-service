@@ -10,3 +10,29 @@ spring:
     authentication:
       username: ${NEO4J_USERNAME}
       password: ${NEO4J_PASSWORD}
+
+  kafka:
+    producer:
+      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  risk:
+    weight:
+      delay: ${RISK_WEIGHT_DELAY}
+      weather: ${RISK_WEIGHT_WEATHER}
+      vendor-history: ${RISK_WEIGHT_VENDOR_HISTORY}
+      document-errors: ${RISK_WEIGHT_DOCUMENT_ERRORS}

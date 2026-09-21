@@ -5,9 +5,11 @@ import org.neo4j.cypherdsl.core.renderer.Dialect;
 import org.neo4j.driver.Driver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.neo4j.core.transaction.ReactiveNeo4jTransactionManager;
+import org.springframework.data.neo4j.repository.config.EnableReactiveNeo4jRepositories;
 import org.springframework.transaction.ReactiveTransactionManager;
 
 @org.springframework.context.annotation.Configuration
+@EnableReactiveNeo4jRepositories(basePackages = "com.innowise.predictiveriskservice.repository")
 public class Neo4jConfig {
 
     @Bean

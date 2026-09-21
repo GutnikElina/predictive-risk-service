@@ -1,6 +1,6 @@
 package com.innowise.predictiveriskservice.kafka.consumer;
 
-import com.innowise.predictiveriskservice.entity.ContainerNode;
+import com.innowise.predictiveriskservice.model.ContainerNode;
 import com.innowise.predictiveriskservice.kafka.avro.GeofencingEventAvro;
 import com.innowise.predictiveriskservice.kafka.avro.GeofencingEventType;
 import com.innowise.predictiveriskservice.service.LogisticsGraphService;

@@ -1,7 +1,7 @@
 package com.innowise.predictiveriskservice.controller;
 
-import com.innowise.predictiveriskservice.entity.ContainerNode;
-import com.innowise.predictiveriskservice.entity.ShipmentNode;
+import com.innowise.predictiveriskservice.model.ContainerNode;
+import com.innowise.predictiveriskservice.model.ShipmentNode;
 import com.innowise.predictiveriskservice.service.LogisticsGraphService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

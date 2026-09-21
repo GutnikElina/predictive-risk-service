@@ -1,7 +1,7 @@
 package com.innowise.predictiveriskservice.service;
 
-import com.innowise.predictiveriskservice.entity.ContainerNode;
-import com.innowise.predictiveriskservice.entity.ShipmentNode;
+import com.innowise.predictiveriskservice.model.ContainerNode;
+import com.innowise.predictiveriskservice.model.ShipmentNode;
 import com.innowise.predictiveriskservice.exception.EntityNotFoundException;
 import com.innowise.predictiveriskservice.exception.RelationshipCreationException;
 import com.innowise.predictiveriskservice.repository.SupplyChainRepository;
