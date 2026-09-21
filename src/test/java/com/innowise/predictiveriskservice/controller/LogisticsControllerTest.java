@@ -1,6 +1,6 @@
 package com.innowise.predictiveriskservice.controller;
 
-import com.innowise.predictiveriskservice.entity.ShipmentNode;
+import com.innowise.predictiveriskservice.model.ShipmentNode;
 import com.innowise.predictiveriskservice.exception.EntityNotFoundException;
 import com.innowise.predictiveriskservice.repository.SupplyChainRepository;
 import com.innowise.predictiveriskservice.service.LogisticsGraphService;
